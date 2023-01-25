@@ -39,9 +39,37 @@ public class Reader
 			
 			public void nativeKeyReleased(NativeKeyEvent e) 
 			{
-					
+				if(e.getKeyCode() == NativeKeyEvent.VC_SPACE)
+				{
+					writeMessages();
+				}		
 			}
 		}); 
+	  }
+	  
+	  private void writeMessages()
+	  {
+		    Robot robot;
+			try {
+				robot = new Robot();
+		
+			    // Move the mouse to the search bar
+			    //robot.mouseMove(x, y);
+		
+			    // Click on the search. 
+			    robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+			    robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+			    ArrayList<String> messages = MessageLister.messages;
+			    Iterator<String> ir = messages.iterator();
+			    //Iterator<String> iterator = messages.iterator();
+			    while (ir.hasNext()) 
+			    {
+			        System.out.println(ir.next());
+			    }
+			} catch (AWTException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	  }
 
 }
