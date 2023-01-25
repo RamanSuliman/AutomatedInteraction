@@ -75,7 +75,7 @@ public class Reader
 				    robot.keyPress(KeyEvent.VK_ENTER);
 				    robot.keyRelease(KeyEvent.VK_ENTER);
 			        ir.remove();
-
+			        sleepForAwhile();
 			    }
 			} catch (AWTException e) {
 				// TODO Auto-generated catch block
@@ -83,5 +83,13 @@ public class Reader
 			}
 	  }
 	  
-
+	  private void sleepForAwhile() 
+	  {
+		  try {
+			Thread.sleep(70);
+		   } catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		   }
+	  }
 }
