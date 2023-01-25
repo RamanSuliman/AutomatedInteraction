@@ -64,12 +64,24 @@ public class Reader
 			    //Iterator<String> iterator = messages.iterator();
 			    while (ir.hasNext()) 
 			    {
-			        System.out.println(ir.next());
+			        String value = ir.next();
+			        System.out.println(value);
+			        for (char c : value.toCharArray()) 
+			    	{
+			  	      robot.keyPress(KeyEvent.getExtendedKeyCodeForChar(c));
+			  	      robot.keyRelease(KeyEvent.getExtendedKeyCodeForChar(c));
+			  	    }
+				    // Hit enter
+				    robot.keyPress(KeyEvent.VK_ENTER);
+				    robot.keyRelease(KeyEvent.VK_ENTER);
+			        ir.remove();
+
 			    }
 			} catch (AWTException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	  }
+	  
 
 }
